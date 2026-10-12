@@ -5,11 +5,25 @@ Central configuration: model settings, chunking params, and prompt templates.
 import os
 
 # --- API Key ---
+
 # Set via environment variable or paste directly (not recommended for production)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "your-api-key-here")
 
 # --- LLM ---
+PROVIDER = "groq"    # "openai" vagy "ollama"
+
+GROQ_LLM_MODEL = "openai/gpt-oss-20b"
+GROQ_BASE_URL = "https://api.groq.com/openai/v1"
+
+# OpenAI
 LLM_MODEL = "gpt-4o-mini"  # cost-efficient; swap to gpt-4o for higher quality
+EMBEDDING_MODEL = "text-embedding-3-small"
+
+# Ollama (local)  
+OLLAMA_LLM_MODEL = "llama3.2:3b"
+OLLAMA_EMBEDDING_MODEL = "nomic-embed-text"
+#OLLAMA_EMBEDDING_MODEL = "bge-m3"
+OLLAMA_BASE_URL = "http://localhost:11434"
 
 # --- Chunking ---
 CHUNK_SIZE = 800       # characters per chunk
